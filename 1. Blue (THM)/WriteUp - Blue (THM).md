@@ -383,4 +383,4 @@ la abrimos y encontramos la ultima flag.
 
 ![[WriteUps en Github/1. Blue (THM)/IMG/Pasted image 20250226134246.png]]
 
-**Respuesta: flag{admin_documents_can_be_valuable}![[WriteUps en Github/1. Blue (THM)/IMG/Pasted image 20250225020513.png]]
+**Respuesta: flag{admin_documents_can_be_valuable}
