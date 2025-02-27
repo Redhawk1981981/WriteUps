@@ -1,8 +1,8 @@
 # WriteUps
 WriteUps Hacking Ético
 
+![](IMG/46.png)
 
-![[Pasted image 20250227013724.png]]
 
 
-![](46%201.png)
+
