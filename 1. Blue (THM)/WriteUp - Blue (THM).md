@@ -8,7 +8,7 @@ nmap -sV -T4 --script vuln -v 10.10.54.88
 
 usando este comando veremos la version de los servicios (-sV) y las vulnerabilidades si las tuviera (--script vuln). El -v es "verbose" para que vaya diciendo lo que va haciendo, es opcional, pero ayuda a saber si está trabajando.
 
-**Respuesta: No aplica.
+**Respuesta: No aplica.**
 
 ![](IMG/Pasted%20image%2020250225020513.png)
 
