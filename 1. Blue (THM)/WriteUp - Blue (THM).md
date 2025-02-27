@@ -10,7 +10,8 @@ usando este comando veremos la version de los servicios (-sV) y las vulnerabilid
 
 **Respuesta: No aplica.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225020513.png]]
+![](WriteUps/1.%20Blue%20(THM)/IMG/Pasted%20image%2020250225020513.png)
+
 ## b) ¿Cuántos puertos están abiertos con un número de puerto menor a 1000?
 
 Hay 3 puertos abiertos que tengan un valor menor a 1000, los cuales son el 135, 445 y 139.
