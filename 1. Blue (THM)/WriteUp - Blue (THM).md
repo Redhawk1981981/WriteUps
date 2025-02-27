@@ -16,14 +16,14 @@ usando este comando veremos la version de los servicios (-sV) y las vulnerabilid
 
 Hay 3 puertos abiertos que tengan un valor menor a 1000, los cuales son el 135, 445 y 139.
 
-**Respuesta: 3
+**Respuesta: 3**
 
 ![](IMG/Pasted%20image%2020250225020639.png)
 ## c) ¿A qué es vulnerable esta máquina? (Respuesta en forma de: ms??-???, ej: ms08-067)
 
 Vemos que tiene una vulnerabilidad con el CVE-2017-0143, y el codigo de la vulnerabilidad es el ms17-010.
 
-**Respuesta: ms17-010
+**Respuesta: ms17-010**
 
 ![](IMG/Pasted%20image%2020250225021134.png)
 
@@ -44,7 +44,7 @@ msfconsole
 
 ![](IMG/Pasted%20image%2020250225022257.png)
 
-**Respuesta: No aplica.
+**Respuesta: No aplica.**
 
 ## b) Busque el código de explotación que ejecutaremos en la máquina. ¿Cuál es la ruta completa del código? (Ej.: exploit/........)
 
@@ -87,11 +87,11 @@ set RHOSTS 10.10.54.88
 
 La ruta al exploit la tenemos entre parentesis en el prompt.
 
-**Respuesta: exploit/windows/smb/ms17_010_eternalblue
+**Respuesta: exploit/windows/smb/ms17_010_eternalblue**
 
 ## c) Mostrar opciones y establecer el valor requerido. ¿Cuál es el nombre de este valor? (En mayúsculas para enviar)
 
-**Respuesta: RHOSTS
+**Respuesta: RHOSTS**
 
 ## d) Por lo general, no habría ningún problema con ejecutar este exploit tal como está; sin embargo, para aprender, debe hacer una cosa más antes de explotar el objetivo. Ingrese el siguiente comando y presione Enter:
 
@@ -122,7 +122,7 @@ Finalmente conseguira ejecutar el exploit
 > [!NOTE] NOTA
 > Ha costado que ejecute el script, que no cunda el pánico, respira hondo y ejecutalo varias veces, reinicia la conexion VPN, sal y entra de metasploit, etc... cuando le de la gana funcionará.
 
-**Respuesta: No aplica.
+**Respuesta: No aplica.**
 
 ## e) Confirme que el exploit se ha ejecutado correctamente. Es posible que tenga que pulsar Intro para que aparezca el shell DOS. Ejecute este shell en segundo plano (CTRL + Z). Si esto falla, es posible que tenga que reiniciar la máquina virtual de destino. Intente ejecutarlo de nuevo antes de reiniciar el destino.
 
@@ -134,7 +134,7 @@ Y la comprobamos probando a ejecutar un whoami:
 
 ![](IMG/Pasted%20image%2020250226022453.png)
 
-**Respuesta: No aplica.
+**Respuesta: No aplica.**
 
 # 3) Escalar privilegios
 
@@ -157,11 +157,11 @@ options
 
 ![](IMG/Pasted%20image%2020250225033257.png)
 
-**Respuesta: post/multi/manage/shell_to_meterpreter
+**Respuesta: post/multi/manage/shell_to_meterpreter**
 
 ## b) Seleccione esto (use MODULE_PATH). Mostrar opciones, ¿qué opción debemos cambiar?
 
-**Respuesta: SESSION
+**Respuesta: SESSION**
 
 > [!NOTE] NOTA
 > Hemos ejecutado ya esto en la captura anterior.
@@ -237,7 +237,7 @@ Para cambiar de la shell a meterpreter, usamos:
 exit
 ```
 
-**Respuesta: No aplica.
+**Respuesta: No aplica.**
 
 ## g) Enumere todos los procesos que se ejecutan mediante el comando 'ps'. El hecho de que seamos un sistema no significa que nuestro proceso lo sea. Busque un proceso hacia el final de esta lista que se esté ejecutando en NT AUTHORITY\SYSTEM y anote el ID del proceso (columna del extremo izquierdo).
 
@@ -265,7 +265,7 @@ y nos ha dado error, así que usamos otro proceso, por ejemplo, el 3008:
 
 ![](IMG/Pasted%20image%2020250226030636.png)
 
-**Respuesta: No aplica.
+**Respuesta: No aplica.**
 
 # 4) Cracking
 
@@ -281,7 +281,7 @@ y vemos todos los usuarios y sus contraseñas, el usuario no predeterminado es J
 
 ![](IMG/Pasted%20image%2020250226030953.png)
 
-**Respuesta: Jon
+**Respuesta: Jon**
 
 ## b) Copia este hash de contraseña en un archivo y busca cómo descifrarlo. ¿Cuál es la contraseña descifrada?
 
@@ -317,7 +317,7 @@ Y lo intentamos de nuevo (ahora con exito):
 
 ![](IMG/Pasted%20image%2020250226032406.png)
 
-**Respuesta: alqfna22
+**Respuesta: alqfna22**
 
 # 5) Buscar banderas
 
@@ -342,7 +342,7 @@ cat flag1.txt
 
 ![](IMG/Pasted%20image%2020250226132912.png)
 
-**Respuesta: flag{access_the_machine}
+**Respuesta: flag{access_the_machine}**
 
 ## b) Bandera 2: Esta bandera se puede encontrar en la ubicación donde se almacenan las contraseñas dentro de Windows.
 
@@ -367,7 +367,7 @@ cat flag2.txt
 
 ![](IMG/Pasted%20image%2020250226133506.png)
 
-**Respuesta: flag{sam_database_elevated_access}
+**Respuesta: flag{sam_database_elevated_access}**
 
 ## c) Bandera 3: Esta bandera se puede encontrar en un lugar excelente para saquear. Después de todo, los administradores suelen tener cosas bastante interesantes guardadas.
 
@@ -381,4 +381,4 @@ la abrimos y encontramos la ultima flag.
 
 ![](IMG/Pasted%20image%2020250226134246.png)
 
-**Respuesta: flag{admin_documents_can_be_valuable}
+**Respuesta: flag{admin_documents_can_be_valuable}**
