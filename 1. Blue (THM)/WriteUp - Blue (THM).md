@@ -27,8 +27,11 @@ Vemos que tiene una vulnerabilidad con el CVE-2017-0143, y el codigo de la vulne
 
 ![](IMG/Pasted%20image%2020250225021134.png)
 
-> [!NOTE] NOTA
+
+> [!NOTE]
+> 
 > Tambien podemos ver el codigo de vulnerabilidad en esta web: https://www.exploit-db.com/ buscando por el CVE.
+
 
 ![](IMG/Pasted%20image%2020250225021559.png)
 
@@ -80,8 +83,10 @@ set RHOSTS 10.10.54.88
 
 ![](IMG/Pasted%20image%2020250225023253.png)
 
-> [!NOTE] NOTA
+
+> [!NOTE]
 > Cuidado que aquí metiste el patazo gordo y no cambiaste la Ip de la maquina atacante, LHOSTS, se debe poner la ip que corresponda al interfaz tun0 ya que estamos en la VPN. Si no se cambia la ip no se consigue ejecutar correctamente el exploit. usamos set LHOST 10.8.16.0
+
 
 ![](IMG/Pasted%20image%2020250225030957.png)
 
@@ -119,8 +124,10 @@ Finalmente conseguira ejecutar el exploit
 
 ![](IMG/Pasted%20image%2020250225032706.png)
 
-> [!NOTE] NOTA
+
+> [!NOTE]
 > Ha costado que ejecute el script, que no cunda el pánico, respira hondo y ejecutalo varias veces, reinicia la conexion VPN, sal y entra de metasploit, etc... cuando le de la gana funcionará.
+
 
 **Respuesta: No aplica.**
 
@@ -163,8 +170,10 @@ options
 
 **Respuesta: SESSION**
 
-> [!NOTE] NOTA
+
+> [!NOTE]
 > Hemos ejecutado ya esto en la captura anterior.
+
  
 ## c) Establezca la opción requerida, es posible que necesite enumerar todas las sesiones para encontrar su objetivo aquí. 
 
