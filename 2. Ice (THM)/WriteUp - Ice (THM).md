@@ -1,5 +1,3 @@
-10.10.252.236
-
 # 1) Reconocimiento
 
 ## a) Ejecute un análisis en nuestra máquina de destino. Recomiendo usar un conjunto de análisis SYN para analizar todos los puertos de la máquina. El comando de análisis se proporcionará como una pista, sin embargo, se recomienda completar la sala " Nmap " antes de esta sala.
@@ -31,7 +29,7 @@ nmap -sS -sV -T4 -A 10.10.252.236
 
 **Respuesta: DARK-PC**
 
-# 2. Obtener acceso 
+# 2) Obtener acceso 
 
 ## a) Ahora que hemos identificado algunos servicios interesantes que se ejecutan en nuestra máquina de destino, investiguemos un poco sobre uno de los servicios más extraños identificados: Icecast. Icecast, o al menos esta versión que se ejecuta en nuestro objetivo, tiene muchos defectos y una vulnerabilidad de alto nivel con una puntuación de 7,5 (7,4 según el lugar donde se mire). ¿Cuál es la **puntuación de impacto** de esta vulnerabilidad? Utilice [https://www.cvedetails.com](https://www.cvedetails.com/)  para esta pregunta y la siguiente.
 
@@ -134,9 +132,9 @@ exploit
 
 ![](IMG/Pasted%20image%2020250228031526.png)
 
-# 3. Escalar privilegios
+# 3) Escalar privilegios
 
-## a) ¡Guau! ¡Hemos logrado afianzarnos en nuestra máquina víctima! ¿Cómo se llama ls shell que tenemos ahora?
+## a) ¡Guau! ¡Hemos logrado afianzarnos en nuestra máquina víctima! ¿Cómo se llama la shell que tenemos ahora?
 
 ![](IMG/Pasted%20image%2020250228031807.png)
 
@@ -297,23 +295,172 @@ Ejecutamos:
 getprivs
 ```
 
+![](IMG/Pasted%20image%2020250228201845.png)
 
+**Respuesta: SeTakeOwnershipPrivilege**
 
+# 4) Saqueo
 
+## a) Antes de continuar, debemos pasar a un proceso que realmente tenga los permisos que necesitamos para interactuar con el servicio lsass, el servicio responsable de la autenticación dentro de Windows. Primero, enumeremos los procesos que utilizan el comando `ps`. Tenga en cuenta que podemos ver los procesos que ejecuta NT AUTHORITY\SYSTEM ya que hemos escalado los permisos (aunque nuestro proceso no los tenga).
 
+Ejecutamos:
 
+```
+ps
+```
 
+![](IMG/Pasted%20image%2020250228202149.png)
 
+**Respuesta: No aplica**
 
+## b) Para poder interactuar con lsass, necesitamos estar "viviendo" en un proceso que tenga la misma arquitectura que el servicio lsass (x64 en el caso de esta máquina) y un proceso que tenga los mismos permisos que lsass. El servicio de cola de impresión cumple perfectamente con nuestras necesidades para esto y se reiniciará si falla. ¿Cómo se llama el servicio de impresión?. En esta pregunta se menciona el término "vivir en" un proceso. A menudo, cuando tomamos el control de un programa en ejecución, cargamos otra biblioteca compartida en el programa (una dll) que incluye nuestro código malicioso. A partir de esto, podemos generar un nuevo subproceso que aloja nuestro shell.
 
+Ejecutando al igual que antes:
 
+```
+ps
+```
 
+![](IMG/Pasted%20image%2020250228202532.png)
 
+**Respuesta: spoolsv.exe**
 
+## c) Migre a este proceso ahora con el comando `migrate -N PROCESS_NAME`
 
+Ejecutamos:
 
+```
+migrate -N spoolsv.exe
+```
 
+![](IMG/Pasted%20image%2020250228202827.png)
 
+**Respuesta: No aplica.**
 
+## d) Comprobemos qué usuario somos ahora con el comando `getuid`. ¿Qué usuario aparece en la lista?
 
+Ejecutamos:
 
+```
+getuid
+```
+
+![](IMG/Pasted%20image%2020250228202953.png)
+
+**Respuesta: NT AUTHORITY\SYSTEM**
+
+## e) Ahora que hemos logrado obtener permisos de administrador completos, nos centraremos en el saqueo. Mimikatz es una herramienta de volcado de contraseñas bastante infame que es increíblemente útil. Cárguela ahora usando el comando `load kiwi` (Kiwi es la versión actualizada de Mimikatz)
+
+Ejecutamos:
+
+```
+load kiwi
+```
+
+![](IMG/Pasted%20image%2020250228203303.png)
+
+**Respuesta: No aplica.**
+
+## f) Al cargar kiwi en nuestra sesión de meterpreter se expandirá nuestro menú de ayuda, eche un vistazo a la sección recién agregada del menú de ayuda ahora a través del comando `help`.
+
+Ejecutamos:
+
+```
+help
+```
+
+![](IMG/Pasted%20image%2020250228203418.png)
+
+**Respuesta: No aplica.**
+
+## g) ¿Qué comando permite recuperar todas las credenciales?
+
+Miramos en la ayuda de comandos de kiwi:
+
+![](IMG/Pasted%20image%2020250228203603.png)
+
+**Respuesta: creds_all**
+
+## h) Ejecuta este comando ahora. ¿Cuál es la contraseña de Dark?  Mimikatz nos permite robar esta contraseña de la memoria incluso sin que el usuario "Dark" haya iniciado sesión, ya que hay una tarea programada que ejecuta Icecast como el usuario "Dark". También ayuda que Windows Defender no se esté ejecutando en el equipo ;) (Echa un vistazo nuevamente a la lista de ps, este equipo no está en las mejores condiciones con el firewall y el defensor deshabilitados)
+
+Ejecutamos:
+
+```
+creds_all
+```
+
+![](IMG/Pasted%20image%2020250228203814.png)
+
+**Respuesta: Password01!**
+
+# 5) Post explotación
+
+## a) Antes de comenzar con la explotación posterior, revisemos el menú de ayuda una última vez en el shell de meterpreter. Responderemos las siguientes preguntas usando ese menú.
+
+**Respuesta: No aplica.**
+
+## b) ¿Qué comando nos permite volcar todos los hashes de contraseñas almacenados en el sistema? En este caso, no descifraremos la contraseña administrativa, ya que es bastante segura (esto es intencional para evitar intentos de robo de contraseñas).
+
+Ejecutamos:
+
+```
+help
+```
+
+y buscamos en la ayuda el comando para dumpear el contenido de las contraseñas.
+
+![](IMG/Pasted%20image%2020250228204416.png)
+
+**Respuesta: hashdump**
+
+## c) Si bien es más útil cuando se interactúa con una máquina en uso, ¿qué comando nos permite observar el escritorio del usuario remoto en tiempo real?
+
+De nuevo, buscamos en la ayuda:
+
+![](IMG/Pasted%20image%2020250228204655.png)
+
+**Respuesta: screenshare**
+
+## d) ¿Qué tal si quisiéramos grabar desde un micrófono conectado al sistema?
+
+Buscamos de nuevo en la ayuda
+
+![](IMG/Pasted%20image%2020250228204818.png)
+
+**Respuesta: record_mic**
+
+## e) Para complicar los esfuerzos forenses, podemos modificar las marcas de tiempo de los archivos en el sistema. ¿Qué comando nos permite hacer esto? ¡Nunca hagas esto en una prueba de penetración a menos que estés explícitamente autorizado a hacerlo! Esto no es beneficioso para el equipo defensor, ya que intentan desglosar los eventos de la prueba de penetración después del hecho.
+
+Una vez mas, miramos en la ayuda.
+
+![](IMG/Pasted%20image%2020250228205007.png)
+
+**Respuesta: timestomp**
+
+## f) Mimikatz nos permite crear lo que se denomina un «boleto dorado», que nos permite autenticarnos en cualquier lugar con facilidad. ¿Qué comando nos permite hacer esto? Los ataques de ticket dorado son una función dentro de Mimikatz que abusa de un componente de Kerberos (el sistema de autenticación en dominios Windows), el ticket de concesión de tickets. En resumen, los ataques de ticket dorado nos permiten mantener la persistencia y autenticarnos como cualquier usuario del dominio.
+
+Otra vez lo miramos en la ayuda.
+
+![](IMG/Pasted%20image%2020250228205222.png)
+
+**Respuesta: golden_ticket_create**
+
+## g) Una última cosa a tener en cuenta. Como tenemos la contraseña para el usuario 'Dark', ahora podemos autenticarnos en la máquina y acceder a ella a través de un escritorio remoto (MSRDP). Como se trata de una estación de trabajo, es probable que expulsemos a cualquier usuario que haya iniciado sesión en ella si nos conectamos a ella; sin embargo, siempre es interesante acceder de forma remota a las máquinas y verlas como lo hacen sus usuarios. Si esto aún no se ha habilitado, podemos hacerlo a través del siguiente módulo de Metasploit:  `run post/windows/manage/enable_rdp`
+
+Ejecutamos:
+
+```
+run post/windows/manage/enable_rdp
+```
+
+![](IMG/Pasted%20image%2020250228205530.png)
+
+**Respuesta: No aplica.**
+
+# 6) Crédito extra
+
+## a) A medida que avances en tus habilidades de pentesting, eventualmente te enfrentarás a una explotación sin el uso de Metasploit. Más arriba se proporciona el enlace a una de las explotaciones encontradas en Exploit DB para secuestrar Icecast para la ejecución remota de código. Si bien no es requerido por la sala, se recomienda intentar la explotación a través del código proporcionado o a través de otra explotación similar para perfeccionar aún más tus habilidades.
+
+Exploit link: https://www.exploit-db.com/exploits/568
+
+**Respuesta: No aplica.**
