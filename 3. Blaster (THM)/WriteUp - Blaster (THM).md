@@ -1,6 +1,3 @@
-
-10.10.199.113
-
 # 1) Activar escáneres avanzados y lanzar torpedos de protones (Reconocimiento)
 
 ## a) ¿Cuántos puertos están abiertos en nuestro sistema de destino?
