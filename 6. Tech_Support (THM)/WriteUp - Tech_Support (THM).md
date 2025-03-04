@@ -221,7 +221,7 @@ cat ../../wordpress/wp-config.php
 
 ![](IMG/Pasted%20image%2020250304030157.png)
 
-Hemos encontrado la contraseña para la base de datos de wordpress, ahora tenemos dos credenciales nuevas, el nombre de usuario que encontramos antes, scamsite, y la contraseña ImAScammerLOL!123! con estas credenciales, podemos probar a conectarnos por ssh, que recordemos, tenemos el puerto 22 abierto, de este modo si conseguimos conectarnos, podremos ver los archivos en busca de root.txt. así que lo probamos ejecutando:
+Hemos encontrado la contraseña para la base de datos de wordpress, ahora tenemos dos credenciales nuevas, el nombre de usuario que encontramos antes, scamsite, y la contraseña ImAScammerLOL!123! con estas credenciales, he intentado conectarme al panel de administración de Wordpress, pero no son correctas, por lo que he probado a conectarme por ssh, que recordemos, tenemos el puerto 22 abierto, de este modo si conseguimos conectarnos, podremos ver los archivos en busca de root.txt. así que lo probamos ejecutando:
 
 ```
 ssh scamsite@10.10.96.153
