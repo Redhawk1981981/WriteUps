@@ -8,3 +8,4 @@ WriteUps Hacking Ético
 5. Retro (THM) - https://tryhackme.com/room/retro
 6. Tech_Support (THM) - https://tryhackme.com/room/techsupp0rt1
 7. Relevant (THM) - https://tryhackme.com/room/relevant
+8. Anthem (THM) - https://tryhackme.com/room/anthem
