@@ -165,7 +165,7 @@ put payload.aspx
 
 Ahora que ya tenemos el exploit en la máquina objetivo, antes de ejecutarlo, debemos poner un "listener" en nuestra máquina atacante para que escuche las conexiones, usaremos netcat para ello. de esta forma:
 
-> [!NOTE] Nota
+> [!NOTE]
 > Podríamos hacer el listener con metasploit, pero como en el enunciado nos han comentado que no era necesario para hacer esta máquina, usaremos netcat.
 
 ```
@@ -216,7 +216,7 @@ con esto, estaremos seleccionando el exploit que queremos usar, el payload que q
 Ahora que ya lo tenemos a la escucha, volvemos a hacer la petición curl, o a visitarlo desde el navegador (con la petición curl he tenido problemas, así que mejor desde el navegador).
 
 
-> [!NOTE] Nota
+> [!NOTE]
 > Al solicitar desde el navegador, se queda mucho tiempo pensando, he probado si realmente conectaba buscando passwords.txt y muestra el contenido, por lo que hay conexión, pero le cuesta ejecutar el exploit, hay que armarse de paciencia y recargar y recargar la pagina una y otra vez, esperando siempre hasta que de error, y en una de esas, se conecta. es importante la direccion: 10.10.37.67:49663/nt4wrksv/payload.aspx sobre todo el puerto.
 
 Después de probar durante un rato, por fin se ha conectado.
@@ -259,7 +259,7 @@ y ahora, abriremos una shell en meterpreter.
 
 Se nos ha caducado la sesión por tardar tanto, entre descargar y demás, ya es la segunda vez que nos pasa, repetimos lo de antes del payload y volvemos a hacer otra sesión.
 
-> [!NOTE] Nota
+> [!NOTE]
 > Se ha quedado el servidor Samba "pillado", tenemos que reiniciar la máquina, otra ip diferente... es lo que tiene esto, totalmente inestable, paciencia, otra vez a subir el payload.aspx, Printspoofer y demás...
 
 Ahora si, abrimos la shell.
@@ -297,5 +297,5 @@ cat root.txt
 **root.txt: THM{1fk5kf469devly1gl320zafgl345pv}**
 
 
-> [!NOTE] Nota
+> [!NOTE]
 > Finalmente, no he encontrado utilidad para las credenciales que habíamos conseguido. No se si servirán para algo o será algo para despistar de la propia máquina.
