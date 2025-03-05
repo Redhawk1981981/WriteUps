@@ -119,7 +119,7 @@ En el archivo, encontramos varias pistas:
 - Un directorio que desconocíamos, llamado /subrion, que según nos indican no funciona y que hay que editarlo desde el panel.
 - Las credenciales para dicho directorio, deduzco que para el panel de edición que nos menciona. el usuario parece ser admin y aparece el hash de la contraseña que según nos dicen está "cocinada con una formula mágica". lo de "cocinada" puede referirse a cyberchef, página que nos ayuda a cifrar descifrar hashes de contraseñas, así que probaremos eso lo primero.
 
-Accedemos a la web de cyberchef y agregamos en input el hash que hemos obtenido, el cual es Base64, lo que nos da como output "Scam2021"
+Accedemos a la web de [Cyberchef](https://gchq.github.io/CyberChef/) y agregamos en input el hash que hemos obtenido, el cual es Base64, lo que nos da como output "Scam2021"
 
 ![](IMG/Pasted%20image%2020250304021841.png)
 
