@@ -127,7 +127,7 @@ Navegaremos hasta la ruta que nos indican y abriremos el archivo de configuraci√
 ![](IMG/Pasted%20image%2020250311012945.png)
 
 
-> [!NOTE] Nota
+> [!NOTE]
 > Todo este proceso, realmente podr√≠amos haberlo hecho antes, pero bueno, en este caso el orden de los factores no altera el producto.
 
 
