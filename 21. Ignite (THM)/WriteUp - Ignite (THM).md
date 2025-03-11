@@ -126,7 +126,10 @@ Navegaremos hasta la ruta que nos indican y abriremos el archivo de configuraci�
 
 ![](IMG/Pasted%20image%2020250311012945.png)
 
-Todo este proceso, realmente podríamos haberlo hecho antes, pero bueno, en este caso el orden de los factores no altera el producto.
+
+> [!NOTE] Nota
+> Todo este proceso, realmente podríamos haberlo hecho antes, pero bueno, en este caso el orden de los factores no altera el producto.
+
 
 Ahora que ya tenemos la contraseña de root, sí podemos hacer:
 
