@@ -11,3 +11,4 @@ WriteUps Hacking Ético
 8. Anthem (THM) - https://tryhackme.com/room/anthem
 9. Bolt (THM) - https://tryhackme.com/room/bolt
 10. Ignite (THM) - https://tryhackme.com/room/ignite
+11. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
