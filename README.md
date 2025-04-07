@@ -10,7 +10,8 @@ WriteUps Hacking Ético
 7. Relevant (THM) - https://tryhackme.com/room/relevant
 8. Anthem (THM) - https://tryhackme.com/room/anthem
 9. Basic Pentesting (THM) - https://tryhackme.com/room/basicpentestingjt
-10. Bolt (THM) - https://tryhackme.com/room/bolt
-11. Ignite (THM) - https://tryhackme.com/room/ignite
-12. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
-13. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
+10. Kenobi (THM) - https://tryhackme.com/room/kenobi
+11. Bolt (THM) - https://tryhackme.com/room/bolt
+12. Ignite (THM) - https://tryhackme.com/room/ignite
+13. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
+14. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
