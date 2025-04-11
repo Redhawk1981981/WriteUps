@@ -11,7 +11,8 @@ WriteUps Hacking Ético
 8. Anthem (THM) - https://tryhackme.com/room/anthem
 9. Basic Pentesting (THM) - https://tryhackme.com/room/basicpentestingjt
 10. Kenobi (THM) - https://tryhackme.com/room/kenobi
-11. Bolt (THM) - https://tryhackme.com/room/bolt
-12. Ignite (THM) - https://tryhackme.com/room/ignite
-13. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
-14. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
+11. Easy peasy (THM) - https://tryhackme.com/room/easypeasyctf
+12. Bolt (THM) - https://tryhackme.com/room/bolt
+13. Ignite (THM) - https://tryhackme.com/room/ignite
+14. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
+15. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
