@@ -15,7 +15,8 @@ WriteUps Hacking Ético
 12. Agent Sudo (THM) - https://tryhackme.com/room/agentsudoctf
 13. Root me (THM) - https://tryhackme.com/room/rrootme
 14. Brooklyn nine nine (THM) - https://tryhackme.com/room/brooklynninenine
-15. Bolt (THM) - https://tryhackme.com/room/bolt
-16. Ignite (THM) - https://tryhackme.com/room/ignite
-17. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
-18. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
+15. Poster (THM) - https://tryhackme.com/room/poster
+16. Bolt (THM) - https://tryhackme.com/room/bolt
+17. Ignite (THM) - https://tryhackme.com/room/ignite
+18. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
+19. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
