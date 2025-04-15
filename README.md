@@ -18,7 +18,8 @@ WriteUps Hacking Ético
 15. Bounty Hacker (THM) - https://tryhackme.com/room/cowboyhacker
 16. Poster (THM) - https://tryhackme.com/room/poster
 17. Startup (THM) - https://tryhackme.com/room/startup
-18. Bolt (THM) - https://tryhackme.com/room/bolt
+18. Gaming server(THM) - https://tryhackme.com/room/gamingserver
 19. Ignite (THM) - https://tryhackme.com/room/ignite
-20. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
-21. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
+20. Bolt (THM) - https://tryhackme.com/room/bolt
+21. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
+22. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
