@@ -22,6 +22,7 @@ WriteUps Hacking Ético
 19. Lazy Admin (THM) - https://tryhackme.com/room/lazyadmin
 20. Ignite (THM) - https://tryhackme.com/room/ignite
 21. Wgel CTF (THM) - https://tryhackme.com/room/wgelctf
-22. Bolt (THM) - https://tryhackme.com/room/bolt
-23. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
-24. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
+22. Year of the rabbit (THM) - https://tryhackme.com/room/yearoftherabbit
+23. Bolt (THM) - https://tryhackme.com/room/bolt
+24. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
+25. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
