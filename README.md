@@ -23,6 +23,7 @@ WriteUps Hacking Ético
 20. Ignite (THM) - https://tryhackme.com/room/ignite
 21. Wgel CTF (THM) - https://tryhackme.com/room/wgelctf
 22. Year of the rabbit (THM) - https://tryhackme.com/room/yearoftherabbit
-23. Bolt (THM) - https://tryhackme.com/room/bolt
-24. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
-25. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
+23. Lianyu (THM) - https://tryhackme.com/room/lianyu
+24. Bolt (THM) - https://tryhackme.com/room/bolt
+25. Daily Bugle (THM) - https://tryhackme.com/room/dailybugle
+26. Pickle Rick (THM) - https://tryhackme.com/room/picklerick
